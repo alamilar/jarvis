@@ -1,7 +1,7 @@
 import cv2
 import os
 
-resourcesPath = os.path.dirname(__file__) + '/resources/'
+RESOURCES_PATH = os.path.dirname(__file__) + '/resources/'
 
 
 class FaceDetection:
@@ -19,7 +19,7 @@ class FaceDetection:
             frame_gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
             face_frontal_cascade = cv2.CascadeClassifier(
-                resourcesPath + 'haarcascades/haarcascade_frontalface_default.xml')
+                RESOURCES_PATH + 'haarcascades/haarcascade_frontalface_default.xml')
             faces = face_frontal_cascade.detectMultiScale(frame_gray, 1.3, 5)
             for (x, y, w, h) in faces:
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
